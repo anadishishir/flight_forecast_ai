@@ -36,18 +36,27 @@ GenAI: Google Generative AI (Gemini 1.5-flash)
  
 UI : Streamlit 
  
-Deployment & Production : 
-This project is built for professional scale.
+Deployment
+This application is deployed on Render using a two-service architecture to separate the backend API from the frontend interface.
+Prerequisites
+A Render.com account.
+Your GEMINI_API_KEY ready for configuration.
+Deployment Steps
+Backend (FastAPI):
+Create a new Web Service on Render.
+Connect your GitHub repository (flightfirecastai).
+Runtime: Python 3.
+Build Command: pip install -r requirements.txt
+Start Command: uvicorn main:app --host 0.0.0.0 --port $PORT
+Add your GEMINI_API_KEY in the Environment tab.
+Frontend (Streamlit):
+Create a second Web Service on Render.  
+Connect the same GitHub repository.
+Runtime: Python 3.
+Build Command: pip install -r requirements.txt
+Start Command: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+Ensure the API base URL in your app.py is updated to point to your new live backend URL (e.g., https://your-api-name.onrender.com). 
 
-1. Local Development
-For quick local testing and development:
-
-Run Backend: uvicorn api.main:app --reload
-
-Run Frontend: streamlit run app.py
-
-2. Cloud Deployment (AWS)
-This project is fully containerized, making it production-ready for AWS App Runner, ECS, or EC2.
 
 Containerization: The Dockerfile packages the application, dependencies, and model artifacts into a single portable image.
 
