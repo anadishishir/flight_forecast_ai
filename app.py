@@ -21,7 +21,7 @@ if st.sidebar.button("Predict") :
     
     try: 
         # Requsting Prediction And Analysis From FastAPI Backend 
-        response = requests.post("http://localhost:8000/predict", json=payload) 
+        response = requests.post("https://flight-forecast-api.onrender.com", json=payload) 
         
         if response.status_code == 200 :
             data = response.json() 
