@@ -12,3 +12,4 @@ scikit-learn
 shap 
 statsmodels 
 streamlit 
+google-generativeai 
